@@ -20,18 +20,9 @@ public class MyDrawingView extends View {
 
     private float amogusRotation = 0f;
 
-    public MyDrawingView(Context context) {
-        super(context);
-        init();
-    }
 
     public MyDrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    public MyDrawingView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
         init();
     }
 
