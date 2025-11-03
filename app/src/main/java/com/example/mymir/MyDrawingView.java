@@ -116,10 +116,20 @@ public class MyDrawingView extends View {
         canvas.drawCircle(250, 325, 25, paintFill);
         canvas.drawCircle(250, 325, 25, thickStroke);
 
+        // Линии
+        canvas.drawLine(250, 100, 250, 200, paintStroke);
+        canvas.drawLine(250, 100, 225, 200, paintStroke);
+        canvas.drawLine(250, 100, 275, 200, paintStroke);
+
         //Пропеллеры/параллелограммы (через Path)
-        Paint propellerPaint = new Paint(paintStroke);
-        propellerPaint.setColor(Color.GRAY);
-        propellerPaint.setStrokeWidth(3);
+        Paint propFill = new Paint(Paint.ANTI_ALIAS_FLAG);
+        propFill.setStyle(Paint.Style.FILL);
+        propFill.setColor(Color.GRAY);
+
+        Paint propStroke = new Paint(Paint.ANTI_ALIAS_FLAG);
+        propStroke.setStyle(Paint.Style.STROKE);
+        propStroke.setColor(Color.DKGRAY);
+        propStroke.setStrokeWidth(3);
 
         Path p1 = new Path();
         p1.moveTo(150, 250);
@@ -127,7 +137,8 @@ public class MyDrawingView extends View {
         p1.lineTo(200, 300);
         p1.lineTo(150, 350);
         p1.close();
-        canvas.drawPath(p1, propellerPaint);
+        canvas.drawPath(p1, propFill);   // заливка пропеллера
+        canvas.drawPath(p1, propStroke); // контур пропеллера
 
         Path p2 = new Path();
         p2.moveTo(150, 450);
@@ -135,7 +146,8 @@ public class MyDrawingView extends View {
         p2.lineTo(200, 500);
         p2.lineTo(150, 550);
         p2.close();
-        canvas.drawPath(p2, propellerPaint);
+        canvas.drawPath(p2, propFill);
+        canvas.drawPath(p2, propStroke);
 
         Path p3 = new Path();
         p3.moveTo(300, 200);
@@ -143,7 +155,8 @@ public class MyDrawingView extends View {
         p3.lineTo(350, 350);
         p3.lineTo(300, 300);
         p3.close();
-        canvas.drawPath(p3, propellerPaint);
+        canvas.drawPath(p3, propFill);
+        canvas.drawPath(p3, propStroke);
 
         Path p4 = new Path();
         p4.moveTo(300, 400);
@@ -151,11 +164,13 @@ public class MyDrawingView extends View {
         p4.lineTo(350, 550);
         p4.lineTo(300, 500);
         p4.close();
-        canvas.drawPath(p4, propellerPaint);
+        canvas.drawPath(p4, propFill);
+        canvas.drawPath(p4, propStroke);
 
-        //овальный пропеллер
+        // Овальный пропеллер
         RectF oval = new RectF(225, 400, 275, 550);
-        canvas.drawOval(oval, propellerPaint);
+        canvas.drawOval(oval, propFill);
+        canvas.drawOval(oval, propStroke);
     }
 
     //амогус/космонавт
